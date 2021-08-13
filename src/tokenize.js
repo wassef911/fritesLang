@@ -4,9 +4,9 @@ const {
   isNumber,
   isParenthesis,
   isQuote,
-} = require('./identify');
+} = require("./identify");
 
-const tokenize = input => {
+const tokenize = (input) => {
   const tokens = [];
   let cursor = 0;
 
@@ -15,7 +15,7 @@ const tokenize = input => {
 
     if (isParenthesis(character)) {
       tokens.push({
-        type: 'Parenthesis',
+        type: "Parenthesis",
         value: character,
       });
       cursor++;
@@ -26,8 +26,8 @@ const tokenize = input => {
       cursor++;
       continue;
     }
+    throw new Error(character + " is not a valid syntax.");
   }
-
   return tokens;
 };
 
